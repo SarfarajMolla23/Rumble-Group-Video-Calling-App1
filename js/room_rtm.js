@@ -4,6 +4,8 @@ let handleMemberJoined = async (MemberId) => {
 };
 
 let addMemberToDom = async (MemberId) => {
+
+  
   let membersWrapper = document.getElementById("member__list");
   let memberItem = `<!-- <div class="member__wrapper"             
                     id="member__${MemberId}__wrapper">
@@ -24,16 +26,16 @@ let removeMemberFromDom = async (MemberId) => {
 };
 
 let getMemebers = async () => {
-  let members = await channel.getMemebers()
+  let members = await channel.getMemebers();
 
-  for(let i=0; members.length > i; i++){
-   addMemberToDom(members[i])
+  for (let i = 0; members.length > i; i++) {
+    addMemberToDom(members[i]);
   }
-}
+};
 
 let leaveChannel = async () => {
   await channel.leave();
   await rtmClient.logout();
 };
 
-window.addEventListener('beforeunload',leaveChannel);
+window.addEventListener("beforeunload", leaveChannel);
