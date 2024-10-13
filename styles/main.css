@@ -73,7 +73,7 @@ a {
 #logo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1px;
   font-size: 22px;
   font-weight: 700;
   line-height: 0;
@@ -88,7 +88,7 @@ a {
 }
 
 #logo img {
-  height: 42px;
+  width:65px;
 }
 
 #nav a {
