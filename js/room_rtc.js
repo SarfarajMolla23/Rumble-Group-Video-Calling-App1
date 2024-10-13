@@ -62,8 +62,8 @@ let joinStream = async () => {
     {},
     {
       encoderConfig: {
-        width: { min: 640, ideal: 1920, max: 1920 },
-        height: { min: 480, ideal: 1080, max: 1080 },
+        width: { min: 640, ideal: 1280, max: 1280 },
+        height: { min: 480, ideal: 720, max: 720 },
       },
     }
   );
