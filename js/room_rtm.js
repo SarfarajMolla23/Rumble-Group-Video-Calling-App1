@@ -13,11 +13,10 @@ let addMemberToDom = async (MemberId) => {
   let { name } = await rtmClient.getUserAttributesByKeys(MemberId, ["name"]);
 
   let membersWrapper = document.getElementById("member__list");
-  let memberItem = `<!-- <div class="member__wrapper"             
-                    id="member__${MemberId}__wrapper">
-                    <span class="green__icon"></span>
-                    <p class="member_name">${name}</p>
-                </div> -->`;
+  let memberItem = `<div class="member__wrapper" id="member__${MemberId}__wrapper">
+                      <span class="green__icon"></span>
+                      <p class="member_name">${name}</p>
+                  </div>`;
 
   membersWrapper.insertAdjacentHTML("beforeend", memberItem);
 };
@@ -37,15 +36,14 @@ let handleMemberLeft = async (MemberId) => {
 let removeMemberFromDom = async (MemberId) => {
   let memberWrapper = document.getElementById(`member__${MemberId}__wrapper`);
   let name = memberWrapper.getElementsByClassName("member_name")[0].textContent;
-  memberWrapper.remove();
+  addBotMessageToDom(`${name} has left the room.`);
 
-  addBotMessageToDom(` ${name} has left the room.`);
+  memberWrapper.remove();
 };
 
-let getMemebers = async () => {
-  let members = await channel.getMemebers();
+let getMembers = async () => {
+  let members = await channel.getMembers();
   updateMemberTotal(members);
-
   for (let i = 0; members.length > i; i++) {
     addMemberToDom(members[i]);
   }
@@ -91,12 +89,13 @@ let sendMessage = async (e) => {
 let addMessageToDom = (name, message) => {
   let messagesWrapper = document.getElementById("messages");
 
-  let newMessage = ` <div class="message__wrapper">
-                        <div class="message__body">
-                            <strong class="message__author">${name}</strong>
-                            <p class="message__text">${message}</p>
-                        </div>
-                    </div>`;
+  let newMessage = `<div class="message__wrapper">
+                      <div class="message__body">
+                          <strong class="message__author">${name}</strong>
+                          <p class="message__text">${message}</p>
+                      </div>
+                  </div>`;
+
   messagesWrapper.insertAdjacentHTML("beforeend", newMessage);
 
   let lastMessage = document.querySelector(
@@ -110,12 +109,13 @@ let addMessageToDom = (name, message) => {
 let addBotMessageToDom = (botMessage) => {
   let messagesWrapper = document.getElementById("messages");
 
-  let newMessage = ` <!-- <div class="message__wrapper">
-                        <div class="message__body__bot">
-                            <strong class="message__author__bot">🤖 Rumble Bot</strong>
-                            <p class="message__text__bot">${botMessage}</p>
-                        </div>
-                    </div> -->`;
+  let newMessage = `<div class="message__wrapper">
+                      <div class="message__body__bot">
+                          <strong class="message__author__bot">🤖 Mumble Bot</strong>
+                          <p class="message__text__bot">${botMessage}</p>
+                      </div>
+                  </div>`;
+
   messagesWrapper.insertAdjacentHTML("beforeend", newMessage);
 
   let lastMessage = document.querySelector(

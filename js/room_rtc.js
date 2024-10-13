@@ -42,7 +42,7 @@ let joinRoomInit = async () => {
 
   channel.on("MemberJoined", handleMemberJoined);
   channel.on("MemberLeft", handleMemberLeft);
-  channel.on("channelMessage", handleChannelMessage);
+  channel.on("ChannelMessage", handleChannelMessage);
 
   getMembers();
   addBotMessageToDom(`Welcome to the room ${displayName}! 👋`);
@@ -62,20 +62,19 @@ let joinStream = async () => {
     {},
     {
       encoderConfig: {
-        width: { min: 640, ideal: 1080, max: 1080 },
-        height: { min: 480, ideal: 720, max: 720 },
+        width: { min: 640, ideal: 1920, max: 1920 },
+        height: { min: 480, ideal: 1080, max: 1080 },
       },
     }
   );
 
-  let player = ` <div class="video__container" id="user-container-${uid}">
-                     <div class="video-player" id="user-${uid}"></div>
-                </div>`;
+  let player = `<div class="video__container" id="user-container-${uid}">
+                    <div class="video-player" id="user-${uid}"></div>
+                 </div>`;
 
   document
     .getElementById("streams__container")
     .insertAdjacentHTML("beforeend", player);
-
   document
     .getElementById(`user-container-${uid}`)
     .addEventListener("click", expandVideoFrame);
@@ -86,9 +85,8 @@ let joinStream = async () => {
 
 let switchToCamera = async () => {
   let player = `<div class="video__container" id="user-container-${uid}">
-                  <div class="video-player" id="user-${uid}"></div>
-               </div>`;
-
+                    <div class="video-player" id="user-${uid}"></div>
+                 </div>`;
   displayFrame.insertAdjacentHTML("beforeend", player);
 
   await localTracks[0].setMuted(true);
@@ -107,16 +105,14 @@ let handleUserPublished = async (user, mediaType) => {
   await client.subscribe(user, mediaType);
 
   let player = document.getElementById(`user-container-${user.uid}`);
-
   if (player === null) {
     player = `<div class="video__container" id="user-container-${user.uid}">
-    <div class="video-player" id="user-${user.uid}"></div>
-</div>`;
+                <div class="video-player" id="user-${user.uid}"></div>
+            </div>`;
 
     document
       .getElementById("streams__container")
       .insertAdjacentHTML("beforeend", player);
-
     document
       .getElementById(`user-container-${user.uid}`)
       .addEventListener("click", expandVideoFrame);
@@ -139,7 +135,6 @@ let handleUserPublished = async (user, mediaType) => {
 
 let handleUserLeft = async (user) => {
   delete remoteUsers[user.uid];
-
   let item = document.getElementById(`user-container-${user.uid}`);
   if (item) {
     item.remove();
@@ -157,18 +152,6 @@ let handleUserLeft = async (user) => {
   }
 };
 
-let toggleCamera = async (e) => {
-  let button = e.currentTarget;
-
-  if (localTracks[1].muted) {
-    await localTracks[1].setMuted(false);
-    button.classList.add("active");
-  } else {
-    await localTracks[1].setMuted(true);
-    button.classList.remove("active");
-  }
-};
-
 let toggleMic = async (e) => {
   let button = e.currentTarget;
 
@@ -177,6 +160,18 @@ let toggleMic = async (e) => {
     button.classList.add("active");
   } else {
     await localTracks[0].setMuted(true);
+    button.classList.remove("active");
+  }
+};
+
+let toggleCamera = async (e) => {
+  let button = e.currentTarget;
+
+  if (localTracks[1].muted) {
+    await localTracks[1].setMuted(false);
+    button.classList.add("active");
+  } else {
+    await localTracks[1].setMuted(true);
     button.classList.remove("active");
   }
 };
@@ -198,8 +193,8 @@ let toggleScreen = async (e) => {
     displayFrame.style.display = "block";
 
     let player = `<div class="video__container" id="user-container-${uid}">
-    <div class="video-player" id="user-${uid}"></div>
-</div>`;
+                <div class="video-player" id="user-${uid}"></div>
+            </div>`;
 
     displayFrame.insertAdjacentHTML("beforeend", player);
     document
@@ -214,7 +209,7 @@ let toggleScreen = async (e) => {
 
     let videoFrames = document.getElementsByClassName("video__container");
     for (let i = 0; videoFrames.length > i; i++) {
-      if (videoFrames[i].id !== userIdInDisplayFrame) {
+      if (videoFrames[i].id != userIdInDisplayFrame) {
         videoFrames[i].style.height = "100px";
         videoFrames[i].style.width = "100px";
       }
@@ -266,5 +261,6 @@ document.getElementById("camera-btn").addEventListener("click", toggleCamera);
 document.getElementById("mic-btn").addEventListener("click", toggleMic);
 document.getElementById("screen-btn").addEventListener("click", toggleScreen);
 document.getElementById("join-btn").addEventListener("click", joinStream);
+document.getElementById("leave-btn").addEventListener("click", leaveStream);
 
 joinRoomInit();
