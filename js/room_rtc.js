@@ -12,7 +12,6 @@ let client;
 let rtmClient;
 let channel;
 
-
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let roomId = urlParams.get("room");
@@ -36,13 +35,14 @@ let joinRoomInit = async () => {
   rtmClient = await AgoraRTM.createInstance(APP_ID);
   await rtmClient.login({ uid, token });
 
-  channel = await rtmClient.createChannel(roomId)
-    await channel.join()
+  channel = await rtmClient.createChannel(roomId);
+  await channel.join();
 
-    channel.on('MemberJoined', handleMemberJoined)
+  channel.on("MemberJoined", handleMemberJoined);
+  channel.on("MemberLeft", handleMemberLeft);
 
-    client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
-    await client.join(APP_ID, roomId, token, uid)
+  client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+  await client.join(APP_ID, roomId, token, uid);
 
   client.on("user-published", handleUserPublished);
   client.on("user-left", handleUserLeft);
@@ -78,9 +78,9 @@ let joinStream = async () => {
 };
 
 let switchToCamera = async () => {
-  let player = ` <div class="video__container" id="user-container-${uid}">
-  <div class="video-player" id="user-${uid}"></div>
-</div>`;
+  let player = `<div class="video__container" id="user-container-${uid}">
+                  <div class="video-player" id="user-${uid}"></div>
+               </div>`;
 
   displayFrame.insertAdjacentHTML("beforeend", player);
 
@@ -91,7 +91,6 @@ let switchToCamera = async () => {
   document.getElementById("screen-btn").classList.remove("active");
 
   localTracks[1].play(`user-${uid}`);
-
   await client.publish([localTracks[1]]);
 };
 
