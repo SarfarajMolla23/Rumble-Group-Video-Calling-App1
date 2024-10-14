@@ -1,8 +1,8 @@
 # Group Video Calling Application
-# You can create your personal room also.
-# You can do Stream also Join another stream also. 
-# can chat also and share screen also.
-# Share Link also.
+ You can create your personal room also.
+ You can do Stream also Join another stream also. 
+ can chat also and share screen also.
+ Share Link also.
 ![Screenshot 2024-10-14 112149](https://github.com/user-attachments/assets/74ad2e3d-1e7f-4a60-87af-54aa9b3289b3)
 ![Screenshot 2024-10-14 113821](https://github.com/user-attachments/assets/234fa256-0627-47b1-8311-bb9a74230add)
 ![Screenshot 2024-10-14 113859](https://github.com/user-attachments/assets/780abf75-dbac-44f6-81ae-7b0afcfdd0a8)
