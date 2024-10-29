@@ -4,9 +4,9 @@
 Technologies used:
 
    1. HTML
-   2. Javascript 
-   3. CSS (for styling)
-   4. AGORA Sdk (for server)
+   2. Javascript (Frontend)
+   3. CSS (Styling)
+   4. AGORA Sdk (Backend)
 
 
 How to run:
