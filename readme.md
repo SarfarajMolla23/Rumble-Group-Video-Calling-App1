@@ -2,44 +2,40 @@
 
 This is a web application for group video calling, with a range of interactive features for video, audio, and chat.
 
-# Technologies Used
-   1. HTML
-   2. JavaScript (Frontend)
-   3. CSS (Styling)
-   4. Agora SDK (Backend)
+## Technologies Used
 
-# How to Run
-   1. Clone or download this repository to your local system.
-   2. Right-click on the `index.html` file and right click on it and select
-      `Open with Live server` to launch the application.
-# Features
+1. **HTML**
+2. **JavaScript** (Frontend)
+3. **CSS** (Styling)
+4. **Agora SDK** (Backend)
 
- 1. Create a Room:
+## How to Run
 
-  Users can create a room by entering their name and a unique room ID.
-  Click Go to Room to enter the created room.
-  
-  2. Join and Start Video:
+1. Clone or download this repository to your local system.
+2. Right-click on the `index.html` file and select **Open with Live Server** to launch the application.
 
-   In the room, click the Join button at the bottom to start your video feed.
-   
-  3. Participant List:
+## Features
 
-  The left sidebar displays the number of participants in the room along with their names.
-  
-  4. Group Chat:
+1. **Create a Room**: 
+   - Users can create a room by entering their name and a unique room ID.
+   - Click **Go to Room** to enter the created room.
 
-The right sidebar allows for group chat, which is visible to all participants in the room.
-The chat includes a "Rumble Bot" that greets each participant by name upon joining and notifies everyone when a participant leaves.
+2. **Join and Start Video**:
+   - In the room, click the **Join** button at the bottom to start your video feed.
 
-   5. Leave Room:
+3. **Participant List**:
+   - The left sidebar displays the number of participants in the room along with their names.
 
-  When a participant clicks the Leave button, they will stop transmitting audio and video but 
-  will still remain in the room as a viewer, similar to a live stream.
-  The participant can continue to view the chat and interact, but they cannot broadcast video 
-  or audio.
-  Their name will remain visible on the participant list to indicate they are still in the room.
-  Snapshots:
+4. **Group Chat**:
+   - The right sidebar allows for group chat, which is visible to all participants in the room.
+   - The chat includes a "Rumble Bot" that greets each participant by name upon joining and notifies everyone when a participant leaves.
+
+5. **Leave Room**:
+   - When a participant clicks the **Leave** button, they will stop transmitting audio and video but will still remain in the room as a viewer, similar to a live stream.
+   - The participant can continue to view the chat and interact, but they cannot broadcast video or audio.
+   - Their name will remain visible on the participant list to indicate they are still in the room.
+
+
 
 image 1:
 ![Screenshot 2024-10-14 112149](https://github.com/user-attachments/assets/74ad2e3d-1e7f-4a60-87af-54aa9b3289b3)
