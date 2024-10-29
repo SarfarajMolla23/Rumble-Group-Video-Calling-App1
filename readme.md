@@ -10,8 +10,8 @@ This is a web application for group video calling, with a range of interactive f
 
 # How to Run
    1. Clone or download this repository to your local system.
-   2. Right-click on the `index.html` file and select `Open with Live Server` to launch the 
-        application.
+   2. Right-click on the `index.html` file and right click on it and select
+      `Open with Live erver` to launch the application.
 # Features
 
  1. Create a Room:
