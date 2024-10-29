@@ -10,8 +10,9 @@ Technologies used:
 
 
 How to run:
-
-      1. 
+   
+   1. Clone/Download this repository to your local system.
+   2. Right click on `index.html` file and click `Open with live server`. 
   
 
 Snapshots:
