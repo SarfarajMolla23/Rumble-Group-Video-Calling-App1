@@ -24,9 +24,9 @@ How it works: A user can create room by writing his name and a unique room id(se
    participant by their name and when the participant left the room it will say the name of the 
    user and say  that user left the room(see image 7), but after you click the leave button you 
    are not leaving the room, you are in the room you can see them talking and chatting, but you 
-   cannot  talk just  like live streaming, you can chat, you can see the(see image 4), in the 
-  left or right bar it  will not show that the user left it will show that the user is there 
-   and itwill show the  name also. 
+   cannot talk just like live streaming, you can chat, you can see the(see image 4), in the 
+  left or right bar it will not show that the user left it will show that the user is there 
+   and it will show the name also. 
 
 Snapshots:
 
