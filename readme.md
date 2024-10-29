@@ -21,11 +21,12 @@ How it works: A user can create room by writing his name and a unique room id(se
    number of participant entered in the room(see image 4) it will also show the participant 
    name also and on the right bar you can chat simultaneously with the group the chat will show 
    to every  one(see image 5) and i have put a rumble bot that will say welcome to all the 
-   participant and when the participant left the room it will say the name of the user and say 
-   that user left the room(see image 7), but after you click the leave button you are not 
-   leaving you are in the room you can see them talking and chatting, but you cannot talk just 
-   like live streaming you can see the(see image 4), in the left or right bar it will not show 
-    that the user left it will show that the user is there and it will show the name also. 
+   participant by their name and when the participant left the room it will say the name of the 
+   user and say  that user left the room(see image 7), but after you click the leave button you 
+   are not  leaving you are in the room you can see them talking and chatting, but you cannot 
+   talk just  like live streaming you can see the(see image 4), in the left or right bar it 
+   will not show that the user left it will show that the user is there and it will show the 
+   name also. 
 
 Snapshots:
 
